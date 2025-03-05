@@ -9,10 +9,13 @@ import Progress from "../../Components/Progress";
 import Profile from "../../Components/Profile";
 import Spendinghour from "../../Components/Spendinghour";
 import Famouscourses from "../../Components/Famouscourses";
+import Adminnavbar from "../Adminpanal/Adminnavbar";
 
 
 const AdminDashboard = () => {
   return (
+    <div>
+      <Adminnavbar/>
     <div className="flex md:flex-row flex-col ">
       <Dashboardicon/>
     <div className="h-full w-full  ">
@@ -30,6 +33,7 @@ const AdminDashboard = () => {
             </div>
             </div>
         
+    </div>
     </div>
     </div>
   );

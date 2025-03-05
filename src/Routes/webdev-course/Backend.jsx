@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { backendRoadmap} from '../../../../lib/data';
+import { backendRoadmap} from '../../../lib/data';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 
 const Backend = () => {

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { frontendRoadmap } from '../../../../lib/data';
+import { frontendRoadmap } from '../../../lib/data';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 
 const Frontend = () => {

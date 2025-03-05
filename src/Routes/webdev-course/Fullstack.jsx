@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { fullstackRoadmap} from '../../../../lib/data';
+import { fullstackRoadmap} from '../../../lib/data';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 
 const Fullstack = () => {

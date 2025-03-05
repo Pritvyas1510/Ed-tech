@@ -1,9 +1,13 @@
 import React from 'react'
 import Dashboardicon from '../../Components/Dashboardicon'
 import Barchart from '../../Components/Barchart'
+import Adminnavbar from '../Adminpanal/Adminnavbar'
 
 const Spandighouricon = () => {
   return (
+    <div>
+      <Adminnavbar/>
+    
     <div className="flex md:flex-row flex-col ">
       <Dashboardicon/> 
       <div className="h-full w-full  ">
@@ -30,7 +34,7 @@ const Spandighouricon = () => {
             </div>
         
     </div>
-   
+    </div>
     </div>
   )
 }

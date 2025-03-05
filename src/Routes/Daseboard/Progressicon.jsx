@@ -2,9 +2,14 @@ import React from 'react'
 import Progress from '../../Components/Progress'
 import Dashboardicon from '../../Components/Dashboardicon';
 import Piechart from '../../Components/PieChart';
+import Adminnavbar from '../Adminpanal/Adminnavbar';
 
 const Progressicon = () => {
   return (
+
+    <div>
+      <Adminnavbar/>
+   
     <div className="flex md:flex-row flex-col ">
     <Dashboardicon/>
   <div className="h-full w-full  ">
@@ -19,6 +24,7 @@ const Progressicon = () => {
                        <p  className="flex gap-1"><span> <div className='border-2 h-4 w-4 bg-[#FF8042] rounded-lg'></div></span><span className="capitalize font-serif  text-black text-xl">Devops Developer</span></p>
                    
              </div><div className="h-48  mt-20">  <Piechart/></div></div></div>
+  </div>
   </div>
   </div>
   </div>

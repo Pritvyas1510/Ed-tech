@@ -21,6 +21,8 @@ import Progress from './Routes/Daseboard/Userdashboard/Progress'
 import Userdashboardf from './Routes/Daseboard/Userdashboard/Userdashboardf'
 import UserProfile from './Routes/Daseboard/Userdashboard/UserProfile'
 import UserSpendigtime from './Routes/Daseboard/Userdashboard/UserSpendigtime'
+import Adminpanal from './Routes/Adminpanal/Adminpanal'
+import Adminhome from './Routes/Adminpanal/Adminhome'
 function App() {
   
 
@@ -48,6 +50,8 @@ function App() {
       <Route path='/uprogress' element={<Progress/>}/>
       <Route path='/userprofile' element={<UserProfile/>}/>
       <Route path='/userspendinghour' element={<UserSpendigtime/>}/>
+      <Route path='/admin' element={<Adminpanal/>}/>
+      <Route path='/adminpanal' element={<Adminhome/>}/>
     </Routes>
     <Footer/>
     </div>

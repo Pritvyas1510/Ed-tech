@@ -1,8 +1,10 @@
-import { Link } from "react-router";
+import React from 'react'
+import { Link } from 'react-router'
 
-const Navbar = () => {
-    return (
-      <div className="navbar bg-gray-50 text-black">
+const Adminnavbar = () => {
+  return (
+    <div>
+         <div className="navbar fixed top-0 bg-gray-50 text-black">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -23,19 +25,17 @@ const Navbar = () => {
             tabIndex={0}
             className="menu menu-sm dropdown-content bg-white rounded-box z-[1] mt-3 w-52 p-2 shadow">
             <li><Link to="/">Home</Link></li>
-            <li><Link to="/course">Course</Link></li> 
-           <li><Link to="/Userdashboard">Dashboard</Link></li>
-            <li><Link to="/about">About us</Link></li>
+           
+            <li><Link to="/dashboard">Dashboard</Link></li>
           </ul>
         </div>
         <a className="btn btn-ghost text-xl"><img src="/public/Image/MainLogo.png" alt="Logo" className="w-12" /><p className="text-black text-4xl">Ed</p><p className="text-blue-800 text-4xl">Tech</p></a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 text-sm text-black font-semibold font-serif">
-           <li><Link to="/">Home</Link></li>
-            <li><Link to="/course">Course</Link></li> 
-            <li><Link to="/Userdashboard">Dashboard</Link></li>
-            <li><Link to="/about">About us</Link></li>
+           <li><Link to="/adminpanal">Home</Link></li>
+        
+            <li><Link to="/dashboard">Dashboard</Link></li>
         </ul>
       </div>
       <div className="navbar-end">
@@ -61,8 +61,8 @@ const Navbar = () => {
 
       </div>
     </div>
-        )
+    </div>
+  )
 }
 
-
-export default Navbar;
+export default Adminnavbar

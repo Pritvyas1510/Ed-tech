@@ -1,8 +1,12 @@
 import React from 'react'
 import Dashboardicon from '../../Components/Dashboardicon'
+import Adminnavbar from '../Adminpanal/Adminnavbar'
 
 const Profileicon = () => {
   return (
+    <div>
+      <Adminnavbar/>
+    
     <div className="flex md:flex-row flex-col ">
       <Dashboardicon/>
     <div className="h-full w-full pt-7 ">
@@ -31,6 +35,7 @@ const Profileicon = () => {
     </div>
     </div>
       </div>
+    </div>
     </div>
   )
 }

@@ -1,9 +1,14 @@
 import React from 'react'
 import Dashboardicon from '../../Components/Dashboardicon'
 import Linechart from '../../Components/Linechart'
+import Adminnavbar from '../Adminpanal/Adminnavbar'
 
 const Totalstudenticon = () => {
   return (
+
+    <div>
+      <Adminnavbar/>
+    
     <div className="flex md:flex-row flex-col ">
     <Dashboardicon/>
   <div className="h-full w-full  ">
@@ -23,6 +28,7 @@ const Totalstudenticon = () => {
 </div>
   
       
+  </div>
   </div>
   </div>
   </div>

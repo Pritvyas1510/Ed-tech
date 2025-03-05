@@ -1,10 +1,13 @@
 import React from "react";
 import Famouse from "../../Components/Famouse";
 import Dashboardicon from "../../Components/Dashboardicon";
+import Adminnavbar from "../Adminpanal/Adminnavbar";
 
 const Famousecourseicon = () => {
   return (
-    <div className="flex md:flex-row flex-col ">
+    <div>   
+      <Adminnavbar/>  
+     <div className="flex md:flex-row flex-col ">
       <Dashboardicon />
       <div className="h-full w-full  ">
         <div className="justify-self-center mx-5 gap-y-5">
@@ -27,6 +30,8 @@ const Famousecourseicon = () => {
         </div>
       </div>
     </div>
+    </div>
+
   );
 };
 

@@ -1,7 +1,10 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const Login = () => {
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -9,10 +12,10 @@ const Login = () => {
   });
 
   const [errors, setErrors] = useState({});
+  const [message, setMessage] = useState("");
 
   const validate = () => {
     let newErrors = {};
-
     if (!formData.email.includes("@")) {
       newErrors.email = "Invalid email format";
     }
@@ -22,17 +25,32 @@ const Login = () => {
     if (!formData.terms) {
       newErrors.terms = "You must accept the terms";
     }
-
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setMessage("");
+  
     if (validate()) {
-      alert("Login successful!");
+      try {
+        const response = await axios.post("http://localhost:8080/login", {
+          email: formData.email,
+          password: formData.password,
+        });
+  
+        const { token } = response.data;
+        localStorage.setItem("token", token); // Store token for authentication
+  
+        setMessage("Login successful!");
+        setTimeout(() => navigate("/"), 1000); // ✅ Redirect to Home page
+      } catch (error) {
+        setMessage(error.response?.data?.msg || "Login failed");
+      }
     }
   };
+  
 
   const handleChange = (e) => {
     const { id, value, type, checked } = e.target;
@@ -41,14 +59,15 @@ const Login = () => {
 
   return (
     <div className="flex flex-col md:flex-row gap-x-5">
-      {/* Left Side (Form) */}
       <div className="md:w-2/5 w-full p-5 justify-self-center md:content-center md:mx-10">
         <div className="bg-pink-50 shadow-xl shadow-gray-200 rounded-xl w-full max-w-[450px] mx-auto p-10">
           <div className="text-black justify-self-center mb-5 text-3xl md:text-5xl font-black font-serif">
             <h1>Sign in</h1>
           </div>
+
+          {message && <p className="text-center text-red-500">{message}</p>}
+
           <form className="max-w-sm mx-auto" onSubmit={handleSubmit}>
-            {/* Email Field */}
             <div className="mb-5">
               <label htmlFor="email" className="block mb-2 text-lg font-medium text-gray-900">
                 Your email
@@ -65,7 +84,6 @@ const Login = () => {
               {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
             </div>
 
-            {/* Password Field */}
             <div className="mb-5">
               <label htmlFor="password" className="block mb-2 text-lg font-medium text-gray-900">
                 Your password
@@ -82,7 +100,6 @@ const Login = () => {
               {errors.password && <p className="text-red-500 text-sm">{errors.password}</p>}
             </div>
 
-            {/* Terms and Conditions */}
             <div className="flex items-start mb-5">
               <div className="flex items-center h-5">
                 <input
@@ -100,7 +117,6 @@ const Login = () => {
             </div>
             {errors.terms && <p className="text-red-500 text-sm">{errors.terms}</p>}
 
-            {/* Submit Button */}
             <div className="justify-self-center">
               <button
                 type="submit"
@@ -110,7 +126,6 @@ const Login = () => {
               </button>
             </div>
 
-            {/* Register Link */}
             <div className="mt-5 justify-self-center">
               <label className="ms-2 text-md font-medium text-gray-900 flex">
                 Don't Have An Account?{" "}
@@ -120,23 +135,21 @@ const Login = () => {
               </label>
             </div>
 
-            {/* Social Login */}
             <div className="flex gap-x-5 justify-self-center my-5">
-              <div className="w-10 bg-white rounded-full cursor-pointer ">
-                <img src="public/image/google.png" alt="Image is not available" />
+              <div className="w-10 bg-white rounded-full cursor-pointer">
+                <img src="public/image/google.png" alt="Google login" />
               </div>
               <div className="w-10 bg-white rounded-full cursor-pointer">
-                <img className="rounded-full" src="public/image/facebook.png" alt="Image is not available" />
+                <img className="rounded-full" src="public/image/facebook.png" alt="Facebook login" />
               </div>
               <div className="w-10 bg-white rounded-full cursor-pointer">
-                <img src="public/image/apple.png" alt="Image is not available" />
-              </div> 
+                <img src="public/image/apple.png" alt="Apple login" />
+              </div>
             </div>
           </form>
         </div>
       </div>
 
-      {/* Right Side Image (Hidden on Mobile, Auto Width on Tablets) */}
       <div className="hidden md:flex md:w-3/5 md:justify-center md:items-center">
         <img
           src="https://img.freepik.com/premium-vector/online-distance-education-from-home_108855-1805.jpg?w=1800"
